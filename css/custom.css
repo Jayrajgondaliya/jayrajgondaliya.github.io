@@ -168,6 +168,10 @@ pre code {
   background-color: #12100E; /* Medium black/dark gray */
 }
 
+.social-tiles .tile.scholar:hover {
+  background-color: #4285F4; /* Google blue */
+}
+
 .article-signature {
   text-align: right;   /* Keeps it on the right side */
   opacity: 0.6;        /* Makes it 60% opaque */
