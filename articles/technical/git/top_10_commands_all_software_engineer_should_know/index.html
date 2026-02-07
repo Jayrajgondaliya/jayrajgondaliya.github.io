@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>10 Git Commands All Software engineers Should Know | Jayraj Gondaliya</title>
+<meta name="keywords" content="git, commands, technical">
+<meta name="description" content="1. Interactive staging: Stage Only What You Want
+Starting with one of my favorite
+Imagine, You’re working on a bug in app.py. To debug, you sprinkled temporary print statements all over the code. You finally fix the bug, and now you want to commit your changes.
+But there’s a problem: if you do:
+git add app.py
+git commit -m &#34;Fix bug in login function&#34;
+Git will stage everything, including your debug prints. You don’t want those cluttering the commit.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/articles/technical/git/top_10_commands_all_software_engineer_should_know/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2a89bda204b990810f55a2155043afa0133534845974928e16c2aafc52868eb7.css" integrity="sha256-Kom9ogS5kIEPVaIVUEOvoBM1NIRZdJKOFsKq/FKGjrc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/articles/technical/git/top_10_commands_all_software_engineer_should_know/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Jayraj Gondaliya (Alt + H)">Jayraj Gondaliya</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/articles/">Articles</a>&nbsp;»&nbsp;<a href="http://localhost:1313/articles/technical/">Technical</a>&nbsp;»&nbsp;<a href="http://localhost:1313/articles/technical/git/">All About Git - By Me</a></div>
+    <h1 class="post-title entry-hint-parent">
+      10 Git Commands All Software engineers Should Know
+    </h1>
+    <div class="post-meta"><span title='2026-02-06 15:00:00 -0800 PST'>February 6, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="1-interactive-staging-stage-only-what-you-want">1. Interactive staging: Stage Only What You Want<a hidden class="anchor" aria-hidden="true" href="#1-interactive-staging-stage-only-what-you-want">#</a></h2>
+<p>Starting with one of my favorite</p>
+<p>Imagine, You’re working on a bug in app.py. To debug, you sprinkled temporary print statements all over the code. You finally fix the bug, and now you want to commit your changes.</p>
+<p>But there’s a problem: if you do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add app.py
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Fix bug in login function&#34;</span>
+</span></span></code></pre></div><p>Git will stage everything, including your debug prints. You don’t want those cluttering the commit.</p>
+<p>Normally, you’d have to manually remove all the debug lines, commit, and then re-add them if needed. Painful.</p>
+<p>Welcome to the interactive staging:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add -p app.py
+</span></span></code></pre></div><p><img alt="Surrender Experiment" loading="lazy" src="cover.jpeg">
+Git now shows your changes in small “hunks” and asks what to do with each one:</p>
+<pre tabindex="0"><code>y — stage this hunk (the bug fix)
+n — skip this hunk (the debug prints)
+s — split the hunk into smaller pieces
+q — quit staging
+</code></pre><p>Suddenly, you can stage only the bug fix, leaving all debug lines in your working directory. When you commit, your history is clean, and your debug prints stay intact for further testing.</p>
+<p>Tip: Interactive staging is a lifesaver when working on multiple tasks in the same file. It keeps your commits focused, clean, and review-friendly.</p>
+<h2 id="1-reset-to-a-specific-datetime">1. Reset to a specific date/time<a hidden class="anchor" aria-hidden="true" href="#1-reset-to-a-specific-datetime">#</a></h2>
+<h3 id="question-can-i-reset-my-repository-to-how-it-looked-at-a-specific-point-in-time">Question: Can I reset my repository to how it looked at a specific point in time?<a hidden class="anchor" aria-hidden="true" href="#question-can-i-reset-my-repository-to-how-it-looked-at-a-specific-point-in-time">#</a></h3>
+<p>Answer: Yes! You can use git reflog combined with git reset.</p>
+<p>Example:
+Reset your repo to the state it was at 2 PM on Jan 22, 2026:</p>
+<p>git log &ndash;before=&ldquo;2026-01-22 14:00&rdquo;
+git reset &ndash;hard <!-- raw HTML omitted --></p>
+<p>Tip: This is incredibly useful if you made multiple bad commits and want to go back in time.</p>
+<p>Image idea: Timeline showing commits and moving HEAD back to a specific timestamp.</p>
+<h2 id="2-undo-multiple-commits-without-losing-changes">2. Undo multiple commits without losing changes<a hidden class="anchor" aria-hidden="true" href="#2-undo-multiple-commits-without-losing-changes">#</a></h2>
+<p>Question: I want to undo my last 3 commits but keep the changes in my working directory.</p>
+<p>Answer:</p>
+<p>git reset &ndash;soft HEAD~3</p>
+<p>&ndash;soft keeps changes staged.</p>
+<p>&ndash;mixed keeps changes unstaged.</p>
+<p>Use case: You committed too early and want to fix messages or combine commits.</p>
+<h2 id="3-amend-the-last-commit">3. Amend the last commit<a hidden class="anchor" aria-hidden="true" href="#3-amend-the-last-commit">#</a></h2>
+<p>Question: Can I fix the last commit without creating a new one?</p>
+<p>Answer:</p>
+<p>git commit &ndash;amend -m &ldquo;Corrected commit message&rdquo;</p>
+<p>You can also add new files to the last commit:</p>
+<p>git add forgotten_file.txt
+git commit &ndash;amend &ndash;no-edit</p>
+<h2 id="4-squash-multiple-commits-into-one">4. Squash multiple commits into one<a hidden class="anchor" aria-hidden="true" href="#4-squash-multiple-commits-into-one">#</a></h2>
+<p>Question: How do I clean up my commit history before pushing?</p>
+<p>Answer: Interactive rebase is your friend:</p>
+<p>git rebase -i HEAD~5</p>
+<p>Mark commits as squash or fixup to combine them.</p>
+<p>Tip: Perfect for cleaning messy feature branches.</p>
+<h2 id="5-recover-deleted-branches">5. Recover deleted branches<a hidden class="anchor" aria-hidden="true" href="#5-recover-deleted-branches">#</a></h2>
+<p>Question: Oops, I deleted a branch. Can I get it back?</p>
+<p>Answer:</p>
+<p>git reflog
+git checkout -b <!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>Tip: Reflog tracks all changes, even on deleted branches.</p>
+<h2 id="6-see-who-changed-a-specific-line">6. See who changed a specific line<a hidden class="anchor" aria-hidden="true" href="#6-see-who-changed-a-specific-line">#</a></h2>
+<p>Question: How do I find who last modified a line in a file?</p>
+<p>Answer:</p>
+<p>git blame <!-- raw HTML omitted --></p>
+<p>Use -L <!-- raw HTML omitted -->,<!-- raw HTML omitted --> to focus on specific lines.</p>
+<p>Use case: Debugging or understanding code history quickly.</p>
+<h2 id="7-stash-specific-files">7. Stash specific files<a hidden class="anchor" aria-hidden="true" href="#7-stash-specific-files">#</a></h2>
+<p>Question: I want to stash only some files, not everything.</p>
+<p>Answer:</p>
+<p>git stash push -m &ldquo;WIP for login&rdquo; path/to/file1 path/to/file2</p>
+<p>Tip: Useful when working on multiple tasks simultaneously.</p>
+<h2 id="8-cherry-pick-a-commit">8. Cherry-pick a commit<a hidden class="anchor" aria-hidden="true" href="#8-cherry-pick-a-commit">#</a></h2>
+<p>Question: Can I apply a single commit from another branch?</p>
+<p>Answer:</p>
+<p>git cherry-pick <!-- raw HTML omitted --></p>
+<p>Use case: Useful when hotfixes are needed without merging the entire branch.</p>
+<h2 id="9-clean-untracked-files-safely">9. Clean untracked files safely<a hidden class="anchor" aria-hidden="true" href="#9-clean-untracked-files-safely">#</a></h2>
+<p>Question: How do I remove all untracked files but keep the repo safe?</p>
+<p>Answer:</p>
+<p>git clean -n   # dry run
+git clean -f   # actually delete
+git clean -fd  # include directories</p>
+<p>Tip: Use -n first to preview what will be removed.</p>
+<h2 id="-pro-tip-for-your-favorite-resetting-to-a-specific-time-can-also-be-automated">💡 Pro tip for your favorite: Resetting to a specific time can also be automated:<a hidden class="anchor" aria-hidden="true" href="#-pro-tip-for-your-favorite-resetting-to-a-specific-time-can-also-be-automated">#</a></h2>
+<p>TARGET_DATE=&ldquo;2026-01-22 14:00&rdquo;
+COMMIT=$(git rev-list -1 &ndash;before=&quot;$TARGET_DATE&quot; main)
+git reset &ndash;hard $COMMIT</p>
+
+
+  </div>
+
+    <div class="article-signature">
+  — Jayraj Gondaliya
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/git/">Git</a></li>
+      <li><a href="http://localhost:1313/tags/commands/">Commands</a></li>
+      <li><a href="http://localhost:1313/tags/technical/">Technical</a></li>
+    </ul>
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Jayraj Gondaliya</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
