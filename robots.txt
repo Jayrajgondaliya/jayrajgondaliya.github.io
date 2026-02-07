@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://jayrajgondaliya.github.io/sitemap.xml

@@ -1,0 +1,174 @@
+/* static/css/custom.css */
+
+/* -------------------------
+   Base typography
+-------------------------- */
+
+:root {
+  --content-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--content-font);
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+}
+
+/* Article content */
+
+.page-header h1{
+  margin-top: 20px
+}
+
+.post-content {
+  font-size: 17px;
+  line-height: 1.75;
+  word-spacing: 0.04em;
+}
+
+/* Headings */
+h1, .post-title{
+  margin-top: 20px
+}
+.post-title,
+h1, h2, h3, h4 {
+  font-family: var(--content-font);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.post-content h2 {
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+/* Paragraph spacing */
+.post-content p {
+  margin-bottom: 1.2em;
+}
+
+/* -------------------------
+   Code typography
+-------------------------- */
+
+code,
+pre,
+kbd,
+samp {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+}
+
+/* Inline code */
+p code,
+li code {
+  padding: 0.2em 0.35em;
+  border-radius: 4px;
+  background: var(--code-bg);
+}
+
+
+/* -------------------------
+   Code blocks styling
+-------------------------- */
+
+pre {
+  padding: 1.2em;
+  border-radius: 8px;
+  overflow-x: auto;
+  background: #0f172a; /* slate-900 */
+}
+
+/* Code text */
+pre code {
+  color: #e5e7eb; /* gray-200 */
+  line-height: 1.6;
+}
+
+/* Keywords */
+.chroma .k,
+.chroma .kd,
+.chroma .kn {
+  color: #93c5fd; /* blue-300 */
+}
+
+/* Strings */
+.chroma .s,
+.chroma .s1,
+.chroma .s2 {
+  color: #86efac; /* green-300 */
+}
+
+/* Comments */
+.chroma .c,
+.chroma .c1 {
+  color: #94a3b8; /* slate-400 */
+  font-style: italic;
+}
+
+/* Numbers */
+.chroma .m {
+  color: #fca5a5; /* red-300 */
+}
+
+/* Function names */
+.chroma .nf {
+  color: #fde68a; /* amber-300 */
+}
+
+/* Home Page */
+/*.mywork-recent-links {
+  color: yellow;
+  border: 1px solid red
+}*/
+
+/*-----------------------------------
+  Theme of social media Icons
+------------------------------------*/
+.social-tiles {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-tiles .tile {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: var(--code-bg);
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+/* Generic hover for all tiles */ 
+.social-tiles .tile:hover {
+  transform: translateY(-2px);
+  color: #fff; /* optional: text color on hover */
+}
+
+/* Specific hover colors */
+.social-tiles .tile.youtube:hover {
+  background-color: #FF0000; /* YouTube red */
+}
+
+.social-tiles .tile.linkedin:hover {
+  background-color: #0077B5; /* LinkedIn blue */
+}
+
+.social-tiles .tile.medium:hover {
+  background-color: #12100E; /* Medium black/dark gray */
+}
+
+.article-signature {
+  text-align: right;   /* Keeps it on the right side */
+  opacity: 0.6;        /* Makes it 60% opaque */
+}
